@@ -7,22 +7,23 @@ int main() {
 	// Initialization
     const int screenWidth = 1440;
     const int screenHeight = 900;
+
     Screen currentScreen = LOGO;
     Vector2 objectPosition = { (float)screenWidth/2, (float)screenHeight/2 };
 
     // Disable KEY_ESCAPE to close window, X-button still works
-    SetExitKey(KEY_NULL);
+    //SetExitKey(KEY_NULL);
     // Flag to request window to exit
-    bool exitWindowRequested = false;
+    //bool exitWindowRequested = false;
     // Flag to set window to exit
-    bool exitWindow = false;
+    //bool exitWindow = false;
 
     Texture2D sprite;
     // Sound sound;
     // Music music;
 
     InitWindow(screenWidth, screenHeight, "Project V");
-    InitAudioDevice();
+    //InitAudioDevice();
     SetTargetFPS(60);
     sprite = LoadTexture("res/img/texture.png");
     // sound = LoadSound("res/snd/sound.ogg");
@@ -30,17 +31,17 @@ int main() {
     //PlayMusicStream(music);
 
 	// Main loop
-    //while (!WindowShouldClose()) {
-    while (!exitWindow) {
+    while (!WindowShouldClose()) {
+    //while (!exitWindow) {
         // Update
-    	if (WindowShouldClose() || IsKeyPressed(KEY_ESCAPE)) exitWindowRequested = true;
+    	//if (WindowShouldClose() || IsKeyPressed(KEY_ESCAPE)) exitWindowRequested = true;
 
-    	if (exitWindowRequested) {
-    		// A request for close window has been issued, we can save data before closing
-    		// or just show a message asking for confirmation
-    		if (IsKeyPressed(KEY_Y)) exitWindow = true;
-    		else if (IsKeyPressed(KEY_N)) exitWindowRequested = false;
-    	}
+    	//if (exitWindowRequested) {
+    		//// A request for close window has been issued, we can save data before closing
+    		//// or just show a message asking for confirmation
+    		//if (IsKeyPressed(KEY_Y)) exitWindow = true;
+    		//else if (IsKeyPressed(KEY_N)) exitWindowRequested = false;
+    	//}
 
         switch(currentScreen) {
         	case LOGO:{
@@ -61,10 +62,10 @@ int main() {
         	default: break;
         }
 
-        if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_L)) objectPosition.x += 20.0f;
-        if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_H)) objectPosition.x -= 20.0f;
-        if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_K)) objectPosition.y -= 20.0f;
-        if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_J)) objectPosition.y += 20.0f;
+        if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_L)) objectPosition.x += 8.0f;
+        if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_H)) objectPosition.x -= 8.0f;
+        if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_K)) objectPosition.y -= 8.0f;
+        if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_J)) objectPosition.y += 8.0f;
 
         //UpdateMusicStream(music);
 
@@ -88,10 +89,11 @@ int main() {
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        if (exitWindowRequested) {
-			DrawRectangle(0, 100, screenWidth, 200, BLACK);
-            DrawText("Are you sure you want to exit program? [Y/N]", 40, 180, 30, WHITE);
-        } else DrawText("Try to close the window to get confirmation message!", 120, 200, 20, LIGHTGRAY);
+
+        //if (exitWindowRequested) {
+			//DrawRectangle(0, 100, screenWidth, 200, BLACK);
+            //DrawText("exit? [y/n]", 40, 180, 30, WHITE);
+        //}
 
         //DrawTexture(sprite, 0, 0, RAYWHITE);
         switch(currentScreen) {
