@@ -139,7 +139,7 @@ int main() {
         	case LOGO:{
         		DrawRectangle(0, 0, screenWidth, screenHeight, RAYWHITE);
         		/* DrawText("welcome. press enter", 240, 350, 42, DARKGRAY); */
-        		DrawText("49: The Labyrinth", 240, 350, 42, DARKGRAY);
+        		DrawText("49: The Maze", 240, 350, 42, DARKGRAY);
         	} break;
         	case PLAY:{
         		/* DrawCircleV(objectPosition, 24, BLACK); */
